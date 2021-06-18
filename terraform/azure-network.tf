@@ -8,10 +8,10 @@ resource "azurerm_virtual_network" "demo" {
 resource "azurerm_subnet" "cluster" {
   name                  = "cluster-01"
   resource_group_name   = azurerm_resource_group.aks.name
-  address_prefix        = "10.1.0.0/24"
   virtual_network_name  = azurerm_virtual_network.demo.name
-  route_table_id        = azurerm_route_table.cluster-01.id
+  address_prefixes     = ["10.1.0.0/24"]
 }
+
 resource "azurerm_route_table" "cluster-01" {
   name                = "${azurerm_resource_group.aks.name}-routetable"
   location            = azurerm_resource_group.aks.location

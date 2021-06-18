@@ -14,9 +14,8 @@ resource "azurerm_kubernetes_cluster" "demo" {
 
     default_node_pool {
         name            = "nodepool01"
-        count           = "3"
+        node_count      = "3"
         vm_size         = "Standard_DS2_v2"
-        os_type         = "Linux"
         os_disk_size_gb = 30
 
         # Required for advanced networking
