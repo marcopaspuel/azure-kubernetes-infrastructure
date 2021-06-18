@@ -28,5 +28,7 @@ terraform plan -out=${planName}
 terraform apply -auto-approve ${planName}
 
 # Get kube-config
-kubeConfigName='config'
-echo "$(terraform output kube_config)" > $HOME/.kube/${kubeConfigName}
+clusterName='demoCluster'
+resourceGroup='demo-aks'
+az aks get-credentials --name $clusterName --resource-group $resourceGroup
+kubectl config use-context $clusterName
