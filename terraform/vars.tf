@@ -13,7 +13,7 @@ variable log_analytics_workspace_name {
 # refer https://azure.microsoft.com/global-infrastructure/services/?products=monitor for log analytics available regions
 variable log_analytics_workspace_location {
     description = "The location of the Log Analytics workspace."
-    default     = "Australia East"
+    default     = "West Europe"
 }
 # refer https://azure.microsoft.com/pricing/details/monitor/ for log analytics pricing 
 variable log_analytics_workspace_sku {
