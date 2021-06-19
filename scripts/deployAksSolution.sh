@@ -7,7 +7,7 @@ tfstateContainer='tfstate'
 tfstateKeyName='key=pluralsight-aks.tfstate'
 
 # Generate SSH keys (This will overwrite any existing key called 'id_rsa')
-yes y | ssh-keygen -t rsa -b 2048 -N "" -f ~/.ssh/id_rsa
+# yes y | ssh-keygen -t rsa -b 2048 -N "" -f ~/.ssh/id_rsa
 
 ### Deploy AKS Solution
 # Initialise solution
