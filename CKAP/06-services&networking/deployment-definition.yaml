@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-webapp-deployment
+  namespace: default
+  labels:
+      app: myapp
+      type: front-end
+spec:
+  template:
+    metadata:
+      name: nginx-pod
+      labels:
+        name: simple-webapp
+    spec:
+      containers:
+      - name: simple-webapp
+        imagePullPolicy: IfNotPresent
+        image: kodekloud/simple-webapp:red
+        ports:
+          - containerPort: 8080
+            protocol: TCP
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      terminationGracePeriodSeconds: 30
+
+  progressDeadlineSeconds: 600
+  replicas: 3
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      name: simple-webapp
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
