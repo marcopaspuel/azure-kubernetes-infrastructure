@@ -2,7 +2,6 @@
 Creates, updates, and deletes a job object.
 """
 
-from os import path
 from time import sleep
 
 from dice_job_spec import dice_job_spec
