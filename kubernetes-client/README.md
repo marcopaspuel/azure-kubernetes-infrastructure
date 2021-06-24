@@ -14,3 +14,8 @@ Create a K8s Job with the throw dice pod
 ``` bash 
 python3 job_creator_dice.py
 ```
+
+Generate json configuration from yaml manifest 
+``` bash 
+kubectl create -f throw-dice-pod.yaml --dry-run=client -o json
+```
