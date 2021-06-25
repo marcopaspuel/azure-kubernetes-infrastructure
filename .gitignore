@@ -32,3 +32,6 @@ aks-cluster.plan
 
 # Pycharm
 .idea
+
+# Mac
+.DS_Store
