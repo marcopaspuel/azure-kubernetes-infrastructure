@@ -17,3 +17,10 @@ Deploy the Kubernetes Cluster
 cd scripts
 ./deployAksSolution.sh
 ```
+
+Destroy the Kubernetes Cluster
+
+``` bash 
+cd terraform
+terraform destroy
+```
