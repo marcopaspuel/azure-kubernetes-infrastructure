@@ -3,7 +3,7 @@ kind: Secret
 metadata:
   name: rabbitmq-consumer
 data:
-  RabbitMqHost: Z3Vlc3Q=
+  RabbitMqHost: YW1xcDovL3VzZXI6UEFTU1dPUkRAcmFiYml0bXEuZGVmYXVsdC5zdmMuY2x1c3Rlci5sb2NhbDo1Njcy
 ---
 apiVersion: keda.sh/v1alpha1
 kind: ScaledJob
@@ -48,6 +48,6 @@ metadata:
 spec:
   secretTargetRef:
     - parameter: host
-      name: rabbitmq
+      name: rabbitmq-consumer
       key: RabbitMqHost
 ---
