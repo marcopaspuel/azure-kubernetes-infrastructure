@@ -3,13 +3,13 @@ kind: Job
 metadata:
   name: producer-job
 spec:
-  completions: 1
+  completions: 10
   parallelism: 1
   backoffLimit: 0 # This is so the job does not quit before it succeeds.
   template:
     spec:
       containers:
-      - name: python-rmq-test
+      - name: python-rmq-test-producer
         image: marcopaspuel/python-rmq-test:1.0.0
         args: ["python", "./producer.py", "--user", "guest", "--password", "guest", "--host", "rabbitmq", "--port", "5672"]
       restartPolicy: Never

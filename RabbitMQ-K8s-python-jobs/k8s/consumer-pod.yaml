@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: consumer-pod
+spec:
+  containers:
+    - name: python-rmq-test-consumer
+      image: marcopaspuel/python-rmq-test:1.0.0
+      args: ["python", "./consumer.py", "--user", "guest", "--password", "guest", "--host", "rabbitmq", "--port", "5672"]
+  restartPolicy: Never

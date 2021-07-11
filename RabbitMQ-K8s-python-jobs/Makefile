@@ -17,3 +17,8 @@ run-publisher-job:
 .PHONY: delete-publisher-job
 delete-publisher-job:
 	kubectl delete --filename k8s/producer-job.yaml
+
+## Deploy consumer pod
+.PHONY: deploy-consumer-pod
+deploy-consumer-pod:
+	kubectl apply --filename k8s/consumer-pod.yaml
