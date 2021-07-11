@@ -22,3 +22,8 @@ delete-publisher-job:
 .PHONY: deploy-consumer-pod
 deploy-consumer-pod:
 	kubectl apply --filename k8s/consumer-pod.yaml
+
+## Deploy consumer job with Keda
+.PHONY: deploy-consumer-job
+deploy-consumer-job:
+	kubectl apply --filename k8s/deploy-consumer-jobs.yaml
