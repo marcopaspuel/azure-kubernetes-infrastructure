@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: producer-job
+spec:
+  completions: 1
+  parallelism: 1
+  backoffLimit: 0 # This is so the job does not quit before it succeeds.
+  template:
+    spec:
+      containers:
+      - name: python-rmq-test
+        image: marcopaspuel/python-rmq-test:1.0.0
+        args: ["python", "./producer.py", "--user", "guest", "--password", "guest", "--host", "rabbitmq", "--port", "5672"]
+      restartPolicy: Never
