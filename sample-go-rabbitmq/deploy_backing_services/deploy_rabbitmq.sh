@@ -8,4 +8,6 @@ helm repo update
 helm upgrade rabbitmq bitnami/rabbitmq \
   --install \
   --set auth.username=user \
-  --set auth.password=PASSWORD
+  --set auth.password=PASSWORD \
+  --namespace rabbitmq-system \
+  --create-namespace
