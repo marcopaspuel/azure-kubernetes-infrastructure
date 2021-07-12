@@ -3,7 +3,7 @@ kind: Secret
 metadata:
   name: rabbitmq-consumer-secret
 data:
-  RabbitMqHost: YW1xcDovL3VzZXI6UEFTU1dPUkRAcmFiYml0bXEuZGVmYXVsdC5zdmMuY2x1c3Rlci5sb2NhbDo1Njcy
+  RabbitMqHost: YW1xcDovL3VzZXI6UEFTU1dPUkRAcmFiYml0bXEucmFiYml0bXEtc3lzdGVtLnN2Yy5jbHVzdGVyLmxvY2FsOjU2NzI=
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -28,7 +28,7 @@ spec:
           command:
             - receive
           args:
-            - "amqp://user:PASSWORD@rabbitmq.default.svc.cluster.local:5672"
+            - "amqp://user:PASSWORD@rabbitmq.rabbitmq-system.svc.cluster.local:5672"
 ---
 apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
