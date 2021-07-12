@@ -1,5 +1,5 @@
 FROM python:3.8-slim
-MAINTAINER Fabian Lee fabianlee.org
+MAINTAINER Marco Paspuel
 
 # copy local python scripts into container
 WORKDIR /src
