@@ -16,8 +16,9 @@ shell: ## Open shell in RabbitMQ node
 
 .PHONY: persistent
 persistent: ## Give RabbitMQ on K8S persistent storage
+	kubectl apply --filename k8s/storageclass.yaml
 	kubectl apply --filename k8s/persistentvolumeclaim.yml
-	yq eval-all 'select(fileIndex == 0) * select(fileIndex == 1)' k8s/statefulset* | kubectl apply --filename -
+	kubectl apply --filename k8s/statefulset_w_volume.yaml
 
 .PHONY: public
 public: ## Make simplest RabbitMQ on K8S public
