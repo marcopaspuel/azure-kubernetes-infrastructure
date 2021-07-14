@@ -15,8 +15,5 @@ spec:
 
   volumes:
   - name: log-volume
-    hostPath:
-      # directory location on host
-      path: /var/log/webapp
-      # this field is optional
-      type: Directory
+    persistentVolumeClaim:
+      claimName: claim-log-1
