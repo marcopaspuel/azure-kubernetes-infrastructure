@@ -9,6 +9,6 @@ spec:
       - name: rabbitmq-client
         image: jeffhollan/rabbitmq-client:dev
         imagePullPolicy: Always
-        command: ["send",  "amqp://admin:brighter-ai@ipson-rabbitmq.ipson-rabbitmq-system.svc.cluster.local:5672", "20"]
+        command: ["send",  "amqp://admin:brighter-ai@ipson-rabbitmq.ipson.svc.cluster.local:5672", "10"]
       restartPolicy: Never
   backoffLimit: 4
