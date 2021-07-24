@@ -11,6 +11,10 @@ az login
 az account set --subscription="SUBSCRIPTION_ID"
 ```
 
+If it is the first time running the cluster run the following commands:
+
+
+
 Deploy the Kubernetes Cluster
 
 ``` bash 
