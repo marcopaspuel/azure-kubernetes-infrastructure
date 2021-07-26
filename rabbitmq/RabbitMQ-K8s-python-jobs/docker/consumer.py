@@ -66,7 +66,7 @@ while True:
     except pika.exceptions.AMQPConnectionError:
         logging.info("Trying to connect again . . .")
 
-channel.basic_consume(queue=args.queue, on_message_callback=queue_callback, auto_ack=True)
+channel.basic_consume(queue=args.queue, on_message_callback=queue_callback, auto_ack=False)
 
 # capture CTRL-C
 signal.signal(signal.SIGINT, signal_handler)
