@@ -50,10 +50,16 @@ ap.add_argument('--routing-key', default="testqueue", help="routing key, default
 ap.add_argument('--body', default="my test!", help="body of message, defaults to 'mytest!'")
 args = ap.parse_args()
 
-# connect to RabbitMQ
-credentials = pika.PlainCredentials(args.user, args.password)
-connection = pika.BlockingConnection(pika.ConnectionParameters(args.host, args.port, '/', credentials))
-channel = connection.channel()
+while True:
+    try:
+        # connect to RabbitMQ
+        credentials = pika.PlainCredentials(args.user, args.password)
+        connection = pika.BlockingConnection(pika.ConnectionParameters(args.host, args.port, '/', credentials))
+        channel = connection.channel()
+        logging.info("Connection Successful")
+        break
+    except pika.exceptions.AMQPConnectionError:
+        logging.info("Trying to connect again . . .")
 
 channel.basic_consume(queue=args.queue, on_message_callback=queue_callback, auto_ack=True)
 
