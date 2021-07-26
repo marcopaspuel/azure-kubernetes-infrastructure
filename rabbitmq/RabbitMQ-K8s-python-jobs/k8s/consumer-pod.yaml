@@ -6,5 +6,6 @@ spec:
   containers:
     - name: python-rmq-test-consumer
       image: marcopaspuel/python-rmq-test:1.0.0
-      args: ["python", "./consumer.py", "--user", "guest", "--password", "guest", "--host", "rabbitmq", "--port", "5672"]
+      imagePullPolicy: Always
+      args: ["python", "./consumer.py", "--user", "admin", "--password", "brighter-ai", "--host", "ipson-rabbitmq.ipson.svc.cluster.local", "--port", "5672", "--queue", "workers-queue"]
   restartPolicy: Never
