@@ -10,6 +10,7 @@ import os
 import pika
 import signal
 import logging
+import time
 
 
 logging.basicConfig(level=logging.INFO)
@@ -17,9 +18,13 @@ logging.basicConfig(level=logging.INFO)
 
 def queue_callback(channel, method, properties, body):
     if len(method.exchange):
-        logging.info("from exchange '{}': {}".format(method.exchange, body.decode('UTF-8')))
+        logging.info("\nfrom exchange '{}': {}".format(method.exchange, body.decode('UTF-8')))
     else:
         logging.info("from queue {}: {}".format(method.routing_key, body.decode('UTF-8')))
+        logging.info("Processing: {}".format(body.decode('UTF-8')))
+        time.sleep(30)
+        logging.info("Finished processing: {}".format(body.decode('UTF-8')))
+        logging.info("DONE\n")
 
 
 def signal_handler(signal, frame):
